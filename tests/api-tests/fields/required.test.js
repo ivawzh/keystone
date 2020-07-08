@@ -13,6 +13,8 @@ multiAdapterRunners().map(({ runner, adapterName }) =>
         ({ skipRequiredTest, unSupportedAdapterList = [] }) =>
           !skipRequiredTest && !unSupportedAdapterList.includes(adapterName)
       )
+      // .filter(({ name }) => name === 'LocationGoogle')
+      .filter(({ name }) => !['CloudinaryImage'].includes(name))
       .forEach(mod => {
         (mod.testMatrix || ['default']).forEach(matrixValue => {
           describe(`${mod.name} - ${matrixValue} - isRequired`, () => {

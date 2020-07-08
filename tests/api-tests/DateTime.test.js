@@ -15,7 +15,7 @@ function setupKeystone(adapterName) {
     },
   });
 }
-multiAdapterRunners().map(({ runner, adapterName }) =>
+multiAdapterRunners('prisma').map(({ runner, adapterName }) =>
   describe(`Adapter: ${adapterName}`, () => {
     describe('DateTime type', () => {
       test(

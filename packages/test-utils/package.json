@@ -10,6 +10,7 @@
   "dependencies": {
     "@keystonejs/adapter-knex": "^11.0.4",
     "@keystonejs/adapter-mongoose": "^9.0.5",
+    "@keystonejs/adapter-prisma": "^0.0.0",
     "@keystonejs/app-graphql": "^6.1.2",
     "@keystonejs/keystone": "^14.0.2",
     "express": "^4.17.1",

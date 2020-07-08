@@ -23,6 +23,8 @@ multiAdapterRunners().map(({ runner, adapterName }) =>
         ({ skipCrudTest, unSupportedAdapterList = [] }) =>
           !skipCrudTest && !unSupportedAdapterList.includes(adapterName)
       )
+      // .filter(({ name }) => name === 'LocationGoogle')
+      .filter(({ name }) => !['CloudinaryImage'].includes(name))
       .forEach(mod => {
         (mod.testMatrix || ['default']).forEach(matrixValue => {
           const listKey = 'Test';

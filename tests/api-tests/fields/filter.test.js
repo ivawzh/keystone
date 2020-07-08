@@ -16,6 +16,9 @@ multiAdapterRunners().map(({ runner, adapterName }) =>
         ({ skipCrudTest, unSupportedAdapterList = [] }) =>
           !skipCrudTest && !unSupportedAdapterList.includes(adapterName)
       )
+      .filter(
+        ({ name }) => !['CloudinaryImage', 'LocationGoogle', 'OEmbed', 'Unsplash'].includes(name)
+      )
       .forEach(mod => {
         (mod.testMatrix || ['default']).forEach(matrixValue => {
           const listKey = 'Test';

@@ -1,6 +1,7 @@
 const prompts = require('prompts');
 const { MongooseAdapter } = require('@keystonejs/adapter-mongoose');
 const { KnexAdapter } = require('@keystonejs/adapter-knex');
+const { PrismaAdapter } = require('@keystonejs/adapter-prisma');
 const terminalLink = require('terminal-link');
 const { error, tick } = require('./util');
 const { getArgs } = require('./get-args');
@@ -45,11 +46,14 @@ const testAdapterConnection = async () => {
     const adapterChoice = await getAdapterChoice();
     const config = await getAdapterConfig();
 
-    const Adapter = adapterChoice.name === 'MongoDB' ? MongooseAdapter : KnexAdapter;
-    const adapterConfig =
-      adapterChoice.name === 'MongoDB'
-        ? { mongoUri: config }
-        : { knexOptions: { connection: config } };
+    const Adapter = { MongoDB: MongooseAdapter, PostgreSQL: KnexAdapter, Prisma: PrismaAdapter }[
+      adapterChoice.name
+    ];
+    const adapterConfig = {
+      MongoDB: { mongoUri: config },
+      PostgreSQL: { knexOptions: { connection: config } },
+      Prisma: {},
+    }[adapterChoice.name];
     const adapter = new Adapter(adapterConfig);
     try {
       await adapter._connect();
