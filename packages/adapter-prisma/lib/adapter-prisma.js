@@ -41,7 +41,7 @@ class PrismaAdapter extends BaseKeystoneAdapter {
     // 2b. If it doesn't exist, generate and run a migration
     const clientDir = 'generated-client';
     const prismaSchema = await this._generatePrismaSchema({ rels, clientDir });
-    console.log({ prismaSchema });
+    // console.log({ prismaSchema });
     // See if there is a prisma client available for this hash
     const prismaPath = this.getPrismaPath({ prismaSchema });
     this.schemaPath = path.join(prismaPath, 'schema.prisma');
@@ -58,7 +58,7 @@ class PrismaAdapter extends BaseKeystoneAdapter {
     ) {
       if (fs.existsSync(this.clientPath)) {
         const existing = fs.readFileSync(this.schemaPath, { encoding: 'utf-8' });
-        console.log({ existing });
+        // console.log({ existing });
         if (existing === prismaSchema) {
           // 2a1. If they're the same, we're golden
         } else {
@@ -71,7 +71,7 @@ class PrismaAdapter extends BaseKeystoneAdapter {
           this._executeMigrations();
         }
       } else {
-        console.log('WRITE');
+        // console.log('WRITE');
         this._writePrismaSchema({ prismaSchema });
 
         // Generate prisma client
