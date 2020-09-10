@@ -43,7 +43,7 @@ async function setupServer({
       getDbSchemaName: ({ prismaSchema }) =>
         crypto.createHash('sha256').update(prismaSchema).digest('hex').slice(0, 16),
       // Turn this on if you need verbose debug info
-      enableLogging: false,
+      enableLogging: true,
     }),
   }[adapterName];
 

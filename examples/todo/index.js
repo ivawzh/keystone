@@ -15,6 +15,7 @@ keystone.createList('Todo', {
   fields: {
     name: { type: Text, schemaDoc: 'This is the thing you need to do', isRequired: true },
     other: { type: Text },
+    more: { type: Text },
   },
 });
 
