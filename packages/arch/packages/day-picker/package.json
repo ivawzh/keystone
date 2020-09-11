@@ -20,7 +20,7 @@
     "@emotion/core": "^10.0.35",
     "@emotion/styled": "^10.0.27",
     "@primer/octicons-react": "^10.1.0",
-    "chrono-node": "^1.4.8",
+    "chrono-node": "^2.1.8",
     "date-fns": "^2.16.1",
     "intersection-observer": "^0.11.0",
     "moment": "^2.27.0",
