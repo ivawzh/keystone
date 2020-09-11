@@ -37,7 +37,7 @@
     "micro-memoize": "^4.0.9",
     "ora": "^5.1.0",
     "p-waterfall": "^2.1.0",
-    "pluralize": "^7.0.0",
+    "pluralize": "^8.0.0",
     "serialize-error": "^7.0.1",
     "stack-utils": "^2.0.2",
     "terminal-link": "^2.1.1"
